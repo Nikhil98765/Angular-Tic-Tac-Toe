@@ -1,0 +1,11 @@
+<span *ngIf="!winner" class="current-player">Current Player : {{currentPlayer}}</span>
+
+<div class="app-board">
+  <app-squares  *ngFor="let sq of squares; let i = index" [value]="sq" class="app-squares" (click)="onSelectSquare(i)"></app-squares>
+</div>
+
+<div class="message" *ngIf="winner || gameEnds">
+  <span *ngIf="!gameEnds" class="text-white">Winner is {{ winner }} !!!</span>
+  <span *ngIf="gameEnds" class="text-white">Draw !!!</span>
+  <button class="btn btn-info" (click)="startNewGame()">New Game</button>
+</div>
